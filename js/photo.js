@@ -20,6 +20,7 @@ photo = {
             that.render(that.page, data);
             //that.scroll(data);
         });
+		console.log("Finish parse JSON");
     },
     render: function (page, data) {
 		//console.log("Hello World");
@@ -46,9 +47,13 @@ photo = {
                     '</div>' +
                   '</div>'
         }
+		console.log("Finish html");
         $(".ImageGrid").append(li);
-		$(".main-inner").append("<style>.main-inner{width: " + window.innerWidth*0.98 +  "px;}</style>");
-        this.minigrid();
+		console.log("Finish append");
+		$(".main-inner").append("<style>.main-inner { width: " + window.innerWidth*0.95 +  "px; }</style>");
+		$(".content.page.posts-expand").append("<style>.content { padding-top: 0px; }</style>");
+        //this.minigrid();
+		console.log("Finish render");
     },
     minigrid: function() {
         var grid = new Minigrid({
