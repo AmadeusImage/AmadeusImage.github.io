@@ -26,11 +26,11 @@ photo = {
         var begin = (page - 1) * this.offset;
         var end = page * this.offset;
         if (begin >= data.list[0].arr.link.length) return;
-        var html, imgNameWithPattern, imgName, imageSize, imageX, imageY, li, src = "";
+        var html, imgNameWithPattern, imgName, imageSize, imageX, imageY, li = "";
 		
         for (var i = begin; i < end && i < data.list[0].arr.link.length; i++) {
 			//if (Math.random() > 0.5)
-			src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' + data.list[0].arr.link[i];
+			var src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' + data.list[0].arr.link[i];
 			//else
 			//	src = 'https://raw.githubusercontent.com/AmadeusImage/X/main/photos/' + data.list[0].arr.link[i];
             //imgNameWithPattern = data[i].split(' ')[1];
