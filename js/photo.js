@@ -26,15 +26,18 @@ photo = {
         var begin = (page - 1) * this.offset;
         var end = page * this.offset;
         if (begin >= data.list[0].arr.link.length) return;
-        var html, imgNameWithPattern, imgName, imageSize, imageX, imageY, li = "";
+        var html, imgNameWithPattern, imgName, imageSize, imageX, imageY, li, src = "";
 		
         for (var i = begin; i < end && i < data.list[0].arr.link.length; i++) {
-		   var src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' + data.list[0].arr.link[i];
-           //imgNameWithPattern = data[i].split(' ')[1];
-           imgName = data.list[0].arr.text[i];//imgNameWithPattern.split('.')[0];
-           //imageSize = data[i].split(' ')[0];
-           imageX = '512';//imageSize.split('.')[0];
-           imageY = '768';//imageSize.split('.')[1];
+			if (Math.random() > 0.5)
+				src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' + data.list[0].arr.link[i];
+			else
+				src = 'https://raw.githubusercontent.com/AmadeusImage/X/main/photos/' + data.list[0].arr.link[i];
+            //imgNameWithPattern = data[i].split(' ')[1];
+            imgName = data.list[0].arr.text[i];//imgNameWithPattern.split('.')[0];
+            //imageSize = data[i].split(' ')[0];
+            imageX = '512';//imageSize.split('.')[0];
+            imageY = '768';//imageSize.split('.')[1];
             li += '<div class="card" style="width:' + imageWidth + 'px" >' +
                     '<div class="ImageInCard" style="height:'+ imageWidth * imageY / imageX + 'px">' +
                       '<a data-fancybox="gallery" href="' + src + '" data-caption="' + imgName + '" title="' +  imgName + '">' +
@@ -44,6 +47,7 @@ photo = {
                   '</div>'
         }
         $(".ImageGrid").append(li);
+		$(".main-inner").append("<style>.main-inner{width: " + window.innerWidth*0.98 +  "px;}</style>");
         this.minigrid();
     },
     minigrid: function() {
