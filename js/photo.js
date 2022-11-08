@@ -29,10 +29,10 @@ photo = {
         var html, imgNameWithPattern, imgName, imageSize, imageX, imageY, li, src = "";
 		
         for (var i = begin; i < end && i < data.list[0].arr.link.length; i++) {
-			if (Math.random() > 0.5)
-				src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' + data.list[0].arr.link[i];
-			else
-				src = 'https://raw.githubusercontent.com/AmadeusImage/X/main/photos/' + data.list[0].arr.link[i];
+			//if (Math.random() > 0.5)
+			src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' + data.list[0].arr.link[i];
+			//else
+			//	src = 'https://raw.githubusercontent.com/AmadeusImage/X/main/photos/' + data.list[0].arr.link[i];
             //imgNameWithPattern = data[i].split(' ')[1];
             imgName = data.list[0].arr.text[i];//imgNameWithPattern.split('.')[0];
             //imageSize = data[i].split(' ')[0];
