@@ -26,16 +26,18 @@ photo = {
 		//console.log("Hello World");
         var begin = (page - 1) * this.offset;
         var end = page * this.offset;
-        if (begin >= data.list[0].arr.link.length) return;
+		var data_ = data.list[0].arr;
+        if (begin >= data_.link.length) return;
         var html, imgNameWithPattern, imgName, imageSize, imageX, imageY, li = "";
 		
-        for (var i = begin; i < end && i < data.list[0].arr.link.length; i++) {
+        //for (var i = begin; i < end && i < data_.link.length; i++) {
+		for (var i = data_.link.length - 1; i > -1; i--) {
 			//if (Math.random() > 0.5)
-			var src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' + data.list[0].arr.link[i];
+			var src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' +data_.link[i];
 			//else
 			//	src = 'https://raw.githubusercontent.com/AmadeusImage/X/main/photos/' + data.list[0].arr.link[i];
             //imgNameWithPattern = data[i].split(' ')[1];
-            imgName = data.list[0].arr.text[i];//imgNameWithPattern.split('.')[0];
+            imgName = data_.text[i];//imgNameWithPattern.split('.')[0];
             //imageSize = data[i].split(' ')[0];
             imageX = '512';//imageSize.split('.')[0];
             imageY = '768';//imageSize.split('.')[1];
@@ -45,7 +47,7 @@ photo = {
                         '<img data-src="' + src + ' " src="' + src + ' " data-loaded="true">' +
                       '</a>' +
                     '</div>' +
-                  '</div>'
+                  '</div>';
         }
 		console.log("Finish html");
         $(".ImageGrid").append(li);
