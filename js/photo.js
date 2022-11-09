@@ -53,12 +53,12 @@ photo = {
             //imgNameWithPattern = data[i].split(' ')[1];
             imgName = data.prompt[i];//imgNameWithPattern.split('.')[0];
             //imageSize = data[i].split(' ')[0];
-            imageX = data.w[i];
-            imageY = data.h[i];
+            imageX = 512;
+            imageY = 768;
             li += '<div class="card" style="width:' + imageWidth + 'px" >' +
                     '<div class="ImageInCard" style="height:'+ imageWidth * imageY / imageX + 'px">' +
                         '<a data-fancybox="gallery" href="' + src + '" data-caption="' + imgName + '" title="' + imgName + '">' +
-                        '<img data-src="' + src + ' " src="' + src + ' " data-loaded="true">' +
+                        '<img data-src="' + src + ' " src="' + src + '">' + //loading="lazy"
                       '</a>' +
                     '</div>' +
                   '</div>';
