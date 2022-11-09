@@ -64,7 +64,7 @@ photo = {
                   '</div>';
         }
 		console.log("Finish html");
-        $(".ImageGrid").html(li);
+        $(".ImageGrid").append(li);
         $(".main-inner").append("<style>.main-inner { width: " + window.innerWidth * 0.95 + "px; }</style>");
         console.log("Finish append");
         //this.minigrid();
