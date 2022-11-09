@@ -24,13 +24,19 @@ photo = {
     },
     render: function (page, data) {
 		//console.log("Hello World");
+        var ipt = document.getElementById("numb");
+        console.log(ipt.value);
+        //ipt.setAttribute('style', 'position:relative;top:0%;left:50%;transform:translate(-50%,-50%);text-align:center;');
+        //ipt.style.color = 'white';
         var begin = (page - 1) * this.offset;
         var end = page * this.offset;
         if (begin >= data.y.length) return;
         var html, imgNameWithPattern, imgName, imageSize, imageX, imageY, li = "";
 		
         //for (var i = begin; i < end && i < data_.link.length; i++) {
-		for (var i = data.y.length - 1; i > -1; i--) {
+        for (var i = data.y.length - 1; i > -1; i--) {
+            if (data.prompt[i].search(document.getElementById("numb").value) == -1)
+                continue
 			//if (Math.random() > 0.5)
 			var src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' +data.fname[i];
 			//else
