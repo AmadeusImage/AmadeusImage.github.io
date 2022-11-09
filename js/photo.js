@@ -69,16 +69,5 @@ photo = {
         console.log("Finish append");
         //this.minigrid();
     },
-    minigrid: function () {
-        var grid = new Minigrid({
-            container: '.ImageGrid',
-            item: '.card',
-            gutter: 12
-        });
-        grid.mount();
-        $(window).resize(function () {
-            grid.mount();
-        });
-    }
 }
 photo.init();
