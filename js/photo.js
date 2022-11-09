@@ -14,10 +14,12 @@ if (windowWidth < 768) {
 photo = {
     page: 1,
     offset: imgMaxNum,
+    json: [],
     init: function () {
         var that = this;
         $.getJSON(imgDataPath, function (data) {
-            that.render(that.page, data);
+            that.json.push(data);
+            //that.render(that.page, data);
             //that.scroll(data);
         });
 		console.log("Finish parse JSON");
@@ -33,11 +35,11 @@ photo = {
         var begin = (page - 1) * this.offset;
         var end = page * this.offset;
         if (begin >= data.y.length) return;
-        var html, imgNameWithPattern, imgName, imageSize, imageX, imageY, li = "";
+        var imgName, imageX, imageY, li = "";
 		
         //for (var i = begin; i < end && i < data_.link.length; i++) {
         for (var i = data.y.length - 1; i > -1; i--) {
-            if (data.prompt[i].search(ipt.value) == -1)
+            if (!data.prompt[i].includes(ipt.value))
                 continue
 			//if (Math.random() > 0.5)
 			var src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' +data.fname[i];
@@ -57,11 +59,10 @@ photo = {
                   '</div>';
         }
 		console.log("Finish html");
-        $(".ImageGrid").append(li);
-		console.log("Finish append");
-		$(".main-inner").append("<style>.main-inner { width: " + window.innerWidth*0.95 + "px; }</style>");
+        $(".ImageGrid").html(li);
+        $(".main-inner").append("<style>.main-inner { width: " + window.innerWidth * 0.95 + "px; }</style>");
+        console.log("Finish append");
         //this.minigrid();
-        console.log("Finish render");
     },
 
 }
