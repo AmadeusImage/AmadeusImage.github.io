@@ -46,10 +46,10 @@ photo = {
             if (!data.prompt[i].toLowerCase().includes(ipt_dt[0].toLowerCase()))
                 continue
             
-			//if (Math.random() > 0.5)
-			var src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' +data.fname[i];
-			//else
-			//	src = 'https://raw.githubusercontent.com/AmadeusImage/X/main/photos/' + data.list[0].arr.link[i];
+			if (Math.random() > 0.5)
+			    var src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' +data.fname[i];
+			else
+				var src = 'https://raw.githubusercontent.com/AmadeusImage/X/main/photos/' +data.fname[i];
             //imgNameWithPattern = data[i].split(' ')[1];
             imgName = data.prompt[i];//imgNameWithPattern.split('.')[0];
             //imageSize = data[i].split(' ')[0];
