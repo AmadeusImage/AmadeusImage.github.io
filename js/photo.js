@@ -46,10 +46,10 @@ photo = {
             if (!data.prompt[i].toLowerCase().includes(ipt_dt[0].toLowerCase()))
                 continue
             
-			if (Math.random() > 0.5)
-			    var src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' +data.fname[i];
-			else
-				var src = 'https://raw.githubusercontent.com/AmadeusImage/X/main/photos/' +data.fname[i];
+			//if (Math.random() > 0.5)
+			var src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' +data.fname[i];
+			//else
+			//	var src = 'https://raw.githubusercontent.com/AmadeusImage/X/main/photos/' +data.fname[i];
             //imgNameWithPattern = data[i].split(' ')[1];
             imgName = data.prompt[i];//imgNameWithPattern.split('.')[0];
             //imageSize = data[i].split(' ')[0];
@@ -69,6 +69,16 @@ photo = {
         console.log("Finish append");
         //this.minigrid();
     },
-
+    minigrid: function () {
+        var grid = new Minigrid({
+            container: '.ImageGrid',
+            item: '.card',
+            gutter: 12
+        });
+        grid.mount();
+        $(window).resize(function () {
+            grid.mount();
+        });
+    }
 }
 photo.init();
