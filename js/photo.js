@@ -25,6 +25,8 @@ photo = {
     render: function (page, data) {
 		//console.log("Hello World");
         var ipt = document.getElementById("numb");
+        if (ipt.value == '')
+            return;
         console.log(ipt.value);
         //ipt.setAttribute('style', 'position:relative;top:0%;left:50%;transform:translate(-50%,-50%);text-align:center;');
         //ipt.style.color = 'white';
@@ -44,11 +46,11 @@ photo = {
             //imgNameWithPattern = data[i].split(' ')[1];
             imgName = data.prompt[i];//imgNameWithPattern.split('.')[0];
             //imageSize = data[i].split(' ')[0];
-            imageX = '512';//imageSize.split('.')[0];
-            imageY = '768';//imageSize.split('.')[1];
+            imageX = data.w[i];
+            imageY = data.h[i];
             li += '<div class="card" style="width:' + imageWidth + 'px" >' +
                     '<div class="ImageInCard" style="height:'+ imageWidth * imageY / imageX + 'px">' +
-                      '<a data-fancybox="gallery" href="' + src + '" data-caption="' + imgName + '" title="' +  imgName + '">' +
+                      '<a data-fancybox="gallery" href="' + src + '" data-caption="' + imgName + '">' +
                         '<img data-src="' + src + ' " src="' + src + ' " data-loaded="true">' +
                       '</a>' +
                     '</div>' +
@@ -57,8 +59,7 @@ photo = {
 		console.log("Finish html");
         $(".ImageGrid").append(li);
 		console.log("Finish append");
-		$(".main-inner").append("<style>.main-inner { width: " + window.innerWidth*0.95 +  "px; }</style>");
-        $(".content.page.posts-expand").append("<style>.content { padding-top: 0px; }</style>");
+		$(".main-inner").append("<style>.main-inner { width: " + window.innerWidth*0.95 + "px; }</style>");
         //this.minigrid();
         console.log("Finish render");
     },
