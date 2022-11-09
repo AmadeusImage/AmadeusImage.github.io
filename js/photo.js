@@ -47,7 +47,7 @@ photo = {
                 continue
             
 			//if (Math.random() > 0.5)
-            var src = 'https://gcore.jsdelivr.net/gh/AmadeusImage/X@main/photos/' +data.fname[i];
+            var src = 'https://test1.jsdelivr.net/gh/AmadeusImage/X@main/photos/' +data.fname[i];
 			//else
 			//	var src = 'https://raw.githubusercontent.com/AmadeusImage/X/main/photos/' +data.fname[i];
             //imgNameWithPattern = data[i].split(' ')[1];
