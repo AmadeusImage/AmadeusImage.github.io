@@ -24,7 +24,7 @@ photo = {
     },
     render: function (page, data) {
 		//console.log("Hello World");
-        var ipt = document.getElementById("numb");
+        var ipt = document.getElementById("promptIpt");
         if (ipt.value == '')
             return;
         console.log(ipt.value);
@@ -37,7 +37,7 @@ photo = {
 		
         //for (var i = begin; i < end && i < data_.link.length; i++) {
         for (var i = data.y.length - 1; i > -1; i--) {
-            if (data.prompt[i].search(document.getElementById("numb").value) == -1)
+            if (data.prompt[i].search(ipt.value) == -1)
                 continue
 			//if (Math.random() > 0.5)
 			var src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' +data.fname[i];
