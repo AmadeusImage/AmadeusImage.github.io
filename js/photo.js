@@ -57,7 +57,7 @@ photo = {
             imageY = data.h[i];
             li += '<div class="card" style="width:' + imageWidth + 'px" >' +
                     '<div class="ImageInCard" style="height:'+ imageWidth * imageY / imageX + 'px">' +
-                      '<a data-fancybox="gallery" href="' + src + '" data-caption="' + imgName + '">' +
+                        '<a data-fancybox="gallery" href="' + src + '" data-caption="' + imgName + '" title="' + imgName + '">' +
                         '<img data-src="' + src + ' " src="' + src + ' " data-loaded="true">' +
                       '</a>' +
                     '</div>' +
