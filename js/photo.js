@@ -36,11 +36,16 @@ photo = {
         var end = page * this.offset;
         if (begin >= data.y.length) return;
         var imgName, imageX, imageY, li = "";
-		
+        var ipt_dt = ipt.value.split('.');
         //for (var i = begin; i < end && i < data_.link.length; i++) {
+
         for (var i = data.y.length - 1; i > -1; i--) {
-            if (!data.prompt[i].includes(ipt.value))
+            if (ipt_dt.length == 4)
+                if (ipt_dt[1] != data.y[i] || ipt_dt[2] != data.m[i] || ipt_dt[3] != data.d[i])
+                    continue
+            if (!data.prompt[i].toLowerCase().includes(ipt_dt[0].toLowerCase()))
                 continue
+            
 			//if (Math.random() > 0.5)
 			var src = 'https://cdn.jsdelivr.net/gh/AmadeusImage/X@main/photos/' +data.fname[i];
 			//else
