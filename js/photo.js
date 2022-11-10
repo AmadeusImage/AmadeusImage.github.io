@@ -1,14 +1,13 @@
-var imgDataPath = '/photos/data.json'; //图片名称高宽信息json文件路径
-var imgPath = '/images/photos/';  //图片访问路径
-var imgMaxNum = 50000; //图片显示数量
+var imgDataPath = '/photos/data.json';
+var imgMaxNum = 9999999999;
 
 var windowWidth = window.innerWidth
 || document.documentElement.clientWidth
 || document.body.clientWidth;
 if (windowWidth < 768) {
-    var imageWidth = 145; //图片显示宽度(手机端)
+    var imageWidth = 145; //Mobile
 } else {
-    var imageWidth = 215; //图片显示宽度
+    var imageWidth = 215;
 }
 
 photo = {
@@ -68,6 +67,20 @@ photo = {
         $(".main-inner").append("<style>.main-inner { width: " + window.innerWidth * 0.95 + "px; }</style>");
         console.log("Finish append");
         //this.minigrid();
+
+        /* Parse table
+        var arr = [];
+        $.get("", function (data) {
+            var tmp_html = $.parseHTML(data);
+            //console.log(tmp_html.innerHTML);
+            var el = $('<div></div>');
+            el.html(tmp_html);
+            $('tbody > tr', el).each(function () {
+                arr.push($(this).find('td:eq(1)').text());
+            });
+        });
+        */
+
     },
 }
 photo.init();
