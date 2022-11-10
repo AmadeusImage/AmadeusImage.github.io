@@ -21,29 +21,40 @@ photo = {
             //that.render(that.page, data);
             //that.scroll(data);
         });
-		console.log("Finish parse JSON");
+        console.log("Finish parse JSON");
+
+        $('.sidebar-inner').append('<input class="sidebarInput" id="sbIptY1">');
+        $('.sidebar-inner').append('<input class="sidebarInput" id="sbIptM1">');
+        $('.sidebar-inner').append('<input class="sidebarInput" id="sbIptD1">');
+        $('.sidebar-inner').append('<input class="sidebarInput" id="sbIptY2">');
+        $('.sidebar-inner').append('<input class="sidebarInput" id="sbIptM2">');
+        $('.sidebar-inner').append('<input class="sidebarInput" id="sbIptD2">');
+        $('.sidebar-inner').append('<text id="resultNum"></text>');
     },
     render: function (page, data) {
 		//console.log("Hello World");
-        var ipt = document.getElementById("promptIpt");
-        if (ipt.value == '')
+        var ipt = $("#promptIpt");
+        if (ipt.val() == '')
             return;
-        console.log(ipt.value);
+        console.log($('#sbIptY1').val());
         //ipt.setAttribute('style', 'position:relative;top:0%;left:50%;transform:translate(-50%,-50%);text-align:center;');
         //ipt.style.color = 'white';
         var begin = (page - 1) * this.offset;
         var end = page * this.offset;
         if (begin >= data.y.length) return;
         var imgName, imageX, imageY, li = "";
-        var ipt_dt = ipt.value.split('.');
+        var ipt_dt = [ipt.val()];
         //for (var i = begin; i < end && i < data_.link.length; i++) {
-
+        var deal_count = 0;
         for (var i = data.y.length - 1; i > -1; i--) {
-            if (ipt_dt.length == 4)
-                if (ipt_dt[1] != data.y[i] || ipt_dt[2] != data.m[i] || ipt_dt[3] != data.d[i])
-                    continue
-            if (!data.prompt[i].toLowerCase().includes(ipt_dt[0].toLowerCase()))
-                continue
+            if ($('#sbIptY1').val() !== "" && $('#sbIptY1').val() > data.y[i]) continue;
+            if ($('#sbIptM1').val() !== "" && $('#sbIptM1').val() > data.m[i]) continue;
+            if ($('#sbIptD1').val() !== "" && $('#sbIptD1').val() > data.d[i]) continue;
+            if ($('#sbIptY2').val() !== "" && $('#sbIptY2').val() < data.y[i]) continue;
+            if ($('#sbIptM2').val() !== "" && $('#sbIptM2').val() < data.m[i]) continue;
+            if ($('#sbIptD2').val() !== "" && $('#sbIptD2').val() < data.d[i]) continue;
+            if (!data.prompt[i].toLowerCase().includes(ipt.val().toLowerCase())) continue;
+            deal_count += 1;
             
 			//if (Math.random() > 0.5)
             var src = 'https://test1.jsdelivr.net/gh/AmadeusImage/X@main/photos/' +data.fname[i];
@@ -66,6 +77,7 @@ photo = {
         $(".ImageGrid").append(li);
         //$(".main-inner").append("<style>.main-inner { width: " + window.innerWidth * 0.95 + "px; }</style>");
         console.log("Finish append");
+        $('.site-state-item-count').text(deal_count);
         //this.minigrid();
 
         /* Parse table
