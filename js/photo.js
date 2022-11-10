@@ -56,7 +56,7 @@ photo = {
             imageY = data.h[i];
             li += '<div class="card" style="width:' + imageWidth + 'px" >' +
                     '<div class="ImageInCard" style="height:'+ imageWidth * imageY / imageX + 'px">' +
-                        '<a data-fancybox="gallery" href="' + src + '" data-caption="' + imgName + '" title="' + imgName + '">' +
+                        '<a data-fancybox="gallery" href="' + src + '" data-caption="' + imgName + '">' +
                         '<img data-src="' + src + ' " src="' + src + '" loading="lazy">' + //loading="lazy"
                       '</a>' +
                     '</div>' +
@@ -64,7 +64,7 @@ photo = {
         }
 		console.log("Finish html");
         $(".ImageGrid").append(li);
-        $(".main-inner").append("<style>.main-inner { width: " + window.innerWidth * 0.95 + "px; }</style>");
+        //$(".main-inner").append("<style>.main-inner { width: " + window.innerWidth * 0.95 + "px; }</style>");
         console.log("Finish append");
         //this.minigrid();
 
