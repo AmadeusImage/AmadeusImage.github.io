@@ -1,4 +1,4 @@
-var imgDataPath = '/photos/data.json';
+var imgDataPath = '/photos/data2.json';
 var imgMaxNum = 9999999999;
 
 var windowWidth = window.innerWidth
@@ -36,35 +36,35 @@ photo = {
         var ipt = $("#promptIpt");
         if (ipt.val() == '')
             return;
-        console.log($('#sbIptY1').val());
+        console.log(data.length);
         //ipt.setAttribute('style', 'position:relative;top:0%;left:50%;transform:translate(-50%,-50%);text-align:center;');
         //ipt.style.color = 'white';
         var begin = (page - 1) * this.offset;
         var end = page * this.offset;
-        if (begin >= data.y.length) return;
+        if (begin >= data.length) return;
         var imgName, imageX, imageY, li = "";
         var ipt_dt = [ipt.val()];
         //for (var i = begin; i < end && i < data_.link.length; i++) {
         var deal_count = 0;
-        for (var i = data.y.length - 1; i > -1; i--) {
-            if ($('#sbIptY1').val() !== "" && $('#sbIptY1').val() > data.y[i]) continue;
-            if ($('#sbIptM1').val() !== "" && $('#sbIptM1').val() > data.m[i]) continue;
-            if ($('#sbIptD1').val() !== "" && $('#sbIptD1').val() > data.d[i]) continue;
-            if ($('#sbIptY2').val() !== "" && $('#sbIptY2').val() < data.y[i]) continue;
-            if ($('#sbIptM2').val() !== "" && $('#sbIptM2').val() < data.m[i]) continue;
-            if ($('#sbIptD2').val() !== "" && $('#sbIptD2').val() < data.d[i]) continue;
-            if (!data.prompt[i].toLowerCase().includes(ipt.val().toLowerCase())) continue;
+        for (var i = data.length - 1; i > -1; i--) {
+            if ($('#sbIptY1').val() !== "" && $('#sbIptY1').val() > data[i].y) continue;
+            if ($('#sbIptM1').val() !== "" && $('#sbIptM1').val() > data[i].m) continue;
+            if ($('#sbIptD1').val() !== "" && $('#sbIptD1').val() > data[i].d) continue;
+            if ($('#sbIptY2').val() !== "" && $('#sbIptY2').val() < data[i].y) continue;
+            if ($('#sbIptM2').val() !== "" && $('#sbIptM2').val() < data[i].m) continue;
+            if ($('#sbIptD2').val() !== "" && $('#sbIptD2').val() < data[i].d) continue;
+            if (!data[i].prompt.toLowerCase().includes(ipt.val().toLowerCase())) continue;
             deal_count += 1;
             
 			//if (Math.random() > 0.5)
-            var src = 'https://test1.jsdelivr.net/gh/AmadeusImage/X@main/photos/' +data.fname[i];
+            var src = 'https://test1.jsdelivr.net/gh/AmadeusImage/X@main/photos/' + data[i].fname;
 			//else
 			//	var src = 'https://raw.githubusercontent.com/AmadeusImage/X/main/photos/' +data.fname[i];
             //imgNameWithPattern = data[i].split(' ')[1];
-            imgName = data.prompt[i];//imgNameWithPattern.split('.')[0];
+            imgName = data[i].prompt;//imgNameWithPattern.split('.')[0];
             //imageSize = data[i].split(' ')[0];
-            imageX = data.w[i];
-            imageY = data.h[i];
+            imageX = data[i].w;
+            imageY = data[i].h;
             li += '<div class="card" style="width:' + imageWidth + 'px" >' +
                     '<div class="ImageInCard" style="height:'+ imageWidth * imageY / imageX + 'px">' +
                         '<a data-fancybox="gallery" href="' + src + '" data-caption="' + imgName + '">' +
