@@ -60,7 +60,7 @@ photo = {
 			//else
 			//	var src = 'https://raw.githubusercontent.com/AmadeusImage/X/main/photos/' +data.fname[i];
             //imgNameWithPattern = data[i].split(' ')[1];
-            imgName = data[i].prompt;//imgNameWithPattern.split('.')[0];
+            imgName = data[i].prompt + ', Neg: ' + data[i].neg;//imgNameWithPattern.split('.')[0];
             //imageSize = data[i].split(' ')[0];
             imageX = data[i].w;
             imageY = data[i].h;
