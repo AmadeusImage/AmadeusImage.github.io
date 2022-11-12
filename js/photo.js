@@ -1,4 +1,3 @@
-var imgDataPath = '/photos/data2.json';
 var imgMaxNum = 10000000000;
 
 var windowWidth = window.innerWidth
@@ -16,7 +15,7 @@ photo = {
     json: [],
     init: function () {
         var that = this;
-        $.getJSON(imgDataPath, function (data) {
+        $.getJSON('/photos/data2.json?nocache=' + (new Date()).getTime(), function (data) {
             that.json.push(data);
             //that.render(that.page, data);
             //that.scroll(data);
