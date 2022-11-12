@@ -1,4 +1,4 @@
-var imgDataPath = '/photos/data2.json';
+var imgDataPath = 'https://raw.githubusercontent.com/AmadeusImage/AmadeusImage.github.io/main/photos/data2.json'; //'/photos/data2.json';
 var imgMaxNum = 9999999999;
 
 var windowWidth = window.innerWidth
