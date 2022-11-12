@@ -1,5 +1,5 @@
 var imgDataPath = '/photos/data2.json';
-var imgMaxNum = 9999999999;
+var imgMaxNum = 1000000;
 
 var windowWidth = window.innerWidth
 || document.documentElement.clientWidth
