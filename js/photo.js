@@ -28,6 +28,7 @@ photo = {
         $('.sidebar-inner').append('<input class="sidebarInput" id="sbIptY2">');
         $('.sidebar-inner').append('<input class="sidebarInput" id="sbIptM2">');
         $('.sidebar-inner').append('<input class="sidebarInput" id="sbIptD2">');
+        $('.sidebar-inner').append('<input class="sidebarInput" id="sbIptNg">');
         $('.sidebar-inner').append('<text id="resultNum"></text>');
     },
     render: function (page, data) {
@@ -53,6 +54,7 @@ photo = {
             if ($('#sbIptM2').val() !== "" && $('#sbIptM2').val() < data[i].m) continue;
             if ($('#sbIptD2').val() !== "" && $('#sbIptD2').val() < data[i].d) continue;
             if (!data[i].prompt.toLowerCase().includes(ipt.val().toLowerCase())) continue;
+            if (!data[i].neg.toLowerCase().includes($('#sbIptNg').val().toLowerCase())) continue;
             deal_count += 1;
             
 			//if (Math.random() > 0.5)
@@ -67,7 +69,7 @@ photo = {
             li += '<div class="card" style="width:' + imageWidth + 'px" >' +
                     '<div class="ImageInCard" style="height:'+ imageWidth * imageY / imageX + 'px">' +
                         '<a data-fancybox="gallery" href="' + src + '" data-caption="' + imgName + '">' +
-                        '<img data-src="' + src + ' " src="' + src + '" loading="lazy">' + //loading="lazy"
+                        '<img data-src="' + src + ' " src="' + src + '" loading="lazy">' +
                       '</a>' +
                     '</div>' +
                   '</div>';
